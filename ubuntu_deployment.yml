@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: ubuntu
+  namespace: ubuntu
 spec:
   replicas: 2
   selector:
@@ -13,8 +14,8 @@ spec:
         app: ubuntu
     spec:
       containers:
-      - name: ubuntu
-        image: ubuntu:latest
+      - name: apache
+        image: httpd:latest
         ports:
         - containerPort: 80
-       
+
